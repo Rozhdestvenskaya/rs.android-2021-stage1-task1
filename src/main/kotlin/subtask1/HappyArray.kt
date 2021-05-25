@@ -4,19 +4,21 @@ class HappyArray {
 
     // TODO: Complete the following function
     fun convertToHappy(sadArray: IntArray): IntArray {
+        return happy(sadArray.toMutableList()).toIntArray()
+    }
 
-        val happyArray  = ArrayList<Int>()
-        happyArray.plusAssign(sadArray[0])
-
-        for (index in 1..sadArray.size - 2) {
-            val sum = sadArray[index - 1] + sadArray[index + 1]
-
-            if(sadArray[index] < sum) {
-                happyArray.plusAssign(sadArray[index])}
-
+    fun happy(str: MutableList<Int>) : MutableList<Int>{
+        var isHappy = true
+        for (index in str.indices ) {
+            if(index>=1 && index < str.size -1) {
+                val sum = str[index - 1] + str[index + 1]
+                if(str[index] > sum) {
+                    str.remove(str[index])
+                    isHappy = false
+                }
+            }
+            if(isHappy == false) happy(str)
         }
-
-        happyArray.plusAssign(sadArray[sadArray.size - 1])
-        return happyArray.toIntArray()
+        return str
     }
 }
