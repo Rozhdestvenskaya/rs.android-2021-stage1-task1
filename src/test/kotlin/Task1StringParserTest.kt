@@ -1,16 +1,15 @@
+
 import org.junit.Test
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertTrue
 import subtask3.StringParser
 
-
 class Task1StringParserTest {
 
     private val stringParser = StringParser()
 
-
     @Test
-    fun testStringParser() {
+    fun testStringParser1() {
         val inputStr = "It's a <simple> [input] (string)"
         val result = arrayOf("simple", "input", "string")
         assertArrayEquals(result, stringParser.getResult(inputStr))

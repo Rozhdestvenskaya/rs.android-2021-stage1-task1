@@ -16,13 +16,16 @@ class StringParser {
                 '[' -> squareBrackets.add(i)
                 '<' -> angleBrackets.add(i)
                 ')' -> {
-                    result.add(inputString.substring(roundBrackets.removeLast() + 1, i))
+                    result.add(inputString.substring(roundBrackets.removeAt(roundBrackets.size - 1) + 1, i))
+
                 }
                 ']' -> {
-                    result.add(inputString.substring(squareBrackets.removeLast() + 1, i))
+                    result.add(inputString.substring(squareBrackets.removeAt(squareBrackets.size - 1) + 1, i))
+
                 }
                 '>' -> {
-                    result.add(inputString.substring(angleBrackets.removeLast() + 1, i))
+                    result.add(inputString.substring(angleBrackets.removeAt(angleBrackets.size - 1) + 1, i))
+
                 }
             }
         }
